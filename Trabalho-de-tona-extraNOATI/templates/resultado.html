@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="caixa">
+        <h1>Resultado</h1>
+
+        <p><strong>Aluno:</strong> {{ nome }}</p>
+        <p><strong>Média:</strong> {{ "%.1f"|format(media) }}</p>
+        <p><strong>Situação:</strong> {{ resultado }}</p>
+
+        <a href="/">Voltar</a>
+    </div>
+
+</body>
+</html>
