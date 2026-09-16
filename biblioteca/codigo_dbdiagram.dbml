@@ -1,0 +1,29 @@
+Table autores {
+  id_autor integer [pk, increment]
+  nome varchar(120) [not null]
+  nacionalidade varchar(60) [not null]
+}
+
+Table livros {
+  id_livro integer [pk, increment]
+  titulo varchar(180) [not null]
+  ano_publicacao integer [not null]
+  genero varchar(60) [not null]
+  quantidade integer [not null, default: 0]
+  id_autor integer [not null, ref: > autores.id_autor]
+}
+
+Table leitores {
+  id_leitor integer [pk, increment]
+  nome varchar(120) [not null]
+  email varchar(150) [not null, unique]
+  telefone varchar(20) [not null]
+}
+
+Table emprestimos {
+  id_emprestimo integer [pk, increment]
+  id_livro integer [not null, ref: > livros.id_livro]
+  id_leitor integer [not null, ref: > leitores.id_leitor]
+  data_emprestimo date [not null]
+  data_devolucao date
+}
